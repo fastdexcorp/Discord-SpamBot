@@ -22,7 +22,7 @@ An discord bot for spam on any server with no permissions :).
   - 6- In the last line of the `Spammer-DC.py` file, change `YOUR BOT TOKEN` with your Discord bot token and execute PY file using `python Spammer-DC.py`
   - 7- Once you've done all this and added the app to your Discord account, simply go to a random channel on Discord server you want and run /spamcustom `THE_TEXT_YOU_WANT`
 
-# IMPORTANT  
+# DISCLAIMER  
 
 - The creator of this bot is not responsible for misuse.
 - In order for the bot to be able to spam on that channel, it must be enabled "Use external applications". This comes by default in any discord channel. Be careful with this on your Discord server.
