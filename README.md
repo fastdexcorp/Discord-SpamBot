@@ -24,5 +24,5 @@ An discord bot for spam on any server with no permissions :).
 
 # DISCLAIMER  
 
-- The creator of this bot is not responsible for misuse.
+- For educational purposes only. The author is not responsible for any misuse of this content.
 - In order for the bot to be able to spam on that channel, it must be enabled "Use external applications". This comes by default in any discord channel. Be careful with this on your Discord server.
