@@ -1,9 +1,6 @@
 # Discord-SpamBot
 
-An discord bot for spam on any server with no permissions :).
-
-## IMAGE (not my authorship)
-![image](https://github.com/user-attachments/assets/bc1182e7-6ae0-4697-803f-9b988b871364)
+An discord bot for spam on any server with no permissions.
 
 # SETUP
 
