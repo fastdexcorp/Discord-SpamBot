@@ -106,7 +106,6 @@ async def sendembed(
 ):
     try:
         embed_color = COLOR_MAP.get(color.value, discord.Color.from_rgb(255, 255, 255))
-
         formatted_message = message.replace("\\n", "\n")
 
         embed = discord.Embed(
@@ -114,7 +113,6 @@ async def sendembed(
             description=formatted_message,
             color=embed_color
         )
-
 
         file_to_send = None
         if file:
@@ -130,6 +128,37 @@ async def sendembed(
     except discord.HTTPException as e:
         print(f"HTTP error: {e}")
         await interaction.response.send_message("An error occurred while sending the embed.", ephemeral=True)
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        await interaction.response.send_message("Something went wrong.", ephemeral=True)
+
+@bot.tree.command(name="sendmessage", description="Sends a plain text message with an optional file")
+@app_commands.describe(
+    message="The message to send",
+    file="Optional file to attach"
+)
+async def sendmessage(
+    interaction: discord.Interaction,
+    message: str,
+    file: Optional[discord.Attachment] = None
+):
+    try:
+        formatted_message = message.replace("\\n", "\n")
+
+        file_to_send = None
+        if file:
+            file_to_send = await file.to_file()
+
+        if file_to_send:
+            await interaction.response.send_message(content=formatted_message, file=file_to_send)
+        else:
+            await interaction.response.send_message(content=formatted_message)
+
+    except discord.Forbidden:
+        await interaction.response.send_message("I don't have permissions to send messages here.", ephemeral=True)
+    except discord.HTTPException as e:
+        print(f"HTTP error: {e}")
+        await interaction.response.send_message("An error occurred while sending the message.", ephemeral=True)
     except Exception as e:
         print(f"Unexpected error: {e}")
         await interaction.response.send_message("Something went wrong.", ephemeral=True)
