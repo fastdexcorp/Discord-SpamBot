@@ -112,12 +112,11 @@ async def sendembed(
             description=message,
             color=embed_color
         )
-        embed.set_footer(text=f"Sent by {interaction.user.display_name}")
+
 
         file_to_send = None
         if file:
             file_to_send = await file.to_file()
-            embed.add_field(name="Attached file", value=file.filename, inline=False)
 
         if file_to_send:
             await interaction.response.send_message(embed=embed, file=file_to_send)
